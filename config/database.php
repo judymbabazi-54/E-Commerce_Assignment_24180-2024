@@ -11,6 +11,10 @@ if (file_exists(__DIR__ . '/db_production.php')) {
     $database = getenv('DB_NAME') ?: 'urban_style_store';
 }
 
+if (empty($database)) {
+    die("Database configuration error: The database name is empty. Please verify that you have added the 'PROD_DB_NAME' secret in your GitHub repository settings and pushed the code.");
+}
+
 // Create a connection
 $conn = mysqli_connect($host, $username, $password, $database);
 
