@@ -2,10 +2,14 @@
 // Start the session for shopping cart usage later
 session_start();
 
-$host = getenv('DB_HOST') ?: 'localhost';
-$username = getenv('DB_USER') ?: 'root';
-$password = getenv('DB_PASSWORD') !== false ? getenv('DB_PASSWORD') : '';
-$database = getenv('DB_NAME') ?: 'urban_style_store';
+if (file_exists(__DIR__ . '/db_production.php')) {
+    include __DIR__ . '/db_production.php';
+} else {
+    $host = getenv('DB_HOST') ?: 'localhost';
+    $username = getenv('DB_USER') ?: 'root';
+    $password = getenv('DB_PASSWORD') !== false ? getenv('DB_PASSWORD') : '';
+    $database = getenv('DB_NAME') ?: 'urban_style_store';
+}
 
 // Create a connection
 $conn = mysqli_connect($host, $username, $password, $database);

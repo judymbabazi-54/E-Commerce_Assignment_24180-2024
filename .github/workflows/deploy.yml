@@ -1,0 +1,40 @@
+name: Deploy to InfinityFree
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: 🔨 Create Production DB Configuration
+        run: |
+          echo "<?php" > config/db_production.php
+          echo "\$host = '${{ secrets.PROD_DB_HOST }}';" >> config/db_production.php
+          echo "\$username = '${{ secrets.PROD_DB_USER }}';" >> config/db_production.php
+          echo "\$password = '${{ secrets.PROD_DB_PASSWORD }}';" >> config/db_production.php
+          echo "\$database = '${{ secrets.PROD_DB_NAME }}';" >> config/db_production.php
+          echo "?>" >> config/db_production.php
+
+      - name: 📂 Deploy via FTP to InfinityFree
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: htdocs/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/Dockerfile
+            **/docker-compose.yml
+            **/README.md
+            **/project_report.md
+            **/presentation_guide.md
