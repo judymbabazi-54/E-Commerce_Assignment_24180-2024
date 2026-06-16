@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  # MySQL Database Service
+  db:
+    image: mysql:5.7
+    container_name: urban_style_db
+    # Force native password authentication for PHP mysqli compatibility
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: urban_style_store
+    ports:
+      - "3307:3306" # Maps container 3306 to host 3307 to avoid collisions with local MySQL
+    volumes:
+      - db_data:/var/lib/mysql
+      # Auto-seed the database on first start
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./database/settings.sql:/docker-entrypoint-initdb.d/2-settings.sql
+
+  # PHP Apache Web Service
+  web:
+    build: .
+    container_name: urban_style_web
+    restart: always
+    ports:
+      - "8080:80" # Maps container port 80 to host port 8080 (URL: http://localhost:8080)
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: root_password
+      DB_NAME: urban_style_store
+    depends_on:
+      - db
+
+volumes:
+  db_data:

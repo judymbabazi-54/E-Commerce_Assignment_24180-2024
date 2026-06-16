@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #111827;
+    --secondary: #F9FAFB;
+    --accent: #2563EB;
+    --success: #10B981;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+/* Smooth hover effects for product cards */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Premium button hover effect */
+.btn-primary {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
