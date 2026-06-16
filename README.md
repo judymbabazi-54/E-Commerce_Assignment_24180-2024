@@ -4,7 +4,7 @@ Urban Style is a modern, responsive e-commerce web application featuring a clien
 
 ---
 
-## 🚀 Technology Stack
+## 🚀 Technology Stacks
 
 - **Frontend Styling:** [Tailwind CSS CDN](https://tailwindcss.com/) with customized color palettes + Vanilla CSS for animations and layout extensions.
 - **Frontend Interactivity:** Vanilla JavaScript (ES6) for DOM manipulations, session updates, and client side interactions.
