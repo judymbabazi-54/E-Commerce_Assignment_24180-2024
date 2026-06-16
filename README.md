@@ -160,7 +160,14 @@ erDiagram
    - Execute the schema migration and admin creation script in your browser or CLI to update category fields and seed administrator credentials:
      - Open `http://localhost/E-Commerce/database/add_admins_table.php` to seed the admin account.
      - Open `http://localhost/E-Commerce/database/update_categories_table.php` to upgrade categories.
-
+6. **Configure DB Driver (Optional):**
+   - If your local database uses a username other than `root` or contains a password, edit configurations in `config/database.php`:
+     ```php
+     $host = 'localhost';
+     $username = 'root';
+     $password = 'YOUR_DB_PASSWORD';
+     $database = 'urban_style_store';
+     ```
 
 ### Default Credentials
 To access the Admin Control Panel (`http://localhost/E-Commerce/admin/`):
