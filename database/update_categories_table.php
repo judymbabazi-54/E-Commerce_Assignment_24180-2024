@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once dirname(__DIR__) . '/config/database.php';
 
 echo "Altering table 'categories' for subcategories support...\n";
@@ -6,6 +10,10 @@ echo "Altering table 'categories' for subcategories support...\n";
 // 1. Check if parent_id column already exists
 $checkColumnQuery = "SHOW COLUMNS FROM categories LIKE 'parent_id'";
 $checkColumnResult = mysqli_query($conn, $checkColumnQuery);
+
+if (!$checkColumnResult) {
+    die("Error checking categories table structure: " . mysqli_error($conn) . "\n");
+}
 
 if (mysqli_num_rows($checkColumnResult) === 0) {
     // Column does not exist, let's alter table to add parent_id column and foreign key constraint
