@@ -56,7 +56,7 @@ $product = mysqli_fetch_assoc($result);
         <!-- Product Image -->
         <div class="lg:max-w-lg lg:self-end">
             <div class="rounded-lg overflow-hidden bg-gray-100 aspect-w-1 aspect-h-1 shadow-md">
-                <img src="assets/images/<?php echo htmlspecialchars($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="w-full h-full object-center object-cover">
+                <img src="<?php echo get_image_url($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="w-full h-full object-center object-cover">
             </div>
         </div>
 

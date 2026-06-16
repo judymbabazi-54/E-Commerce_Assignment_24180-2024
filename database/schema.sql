@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS urban_style_store;
-USE urban_style_store;
+CREATE DATABASE IF NOT EXISTS if0_42199528_urban_style_store;
+USE if0_42199528_urban_style_store;
 
 -- 1. Categories Table
 CREATE TABLE IF NOT EXISTS categories (
@@ -62,10 +62,10 @@ INSERT INTO categories (name, description) VALUES
 ('Jeans', 'Durable and fashionable denim jeans.');
 
 INSERT INTO products (category_id, name, description, price, stock_quantity, image_url) VALUES
-(1, 'Classic White T-Shirt', 'A 100% cotton classic white t-shirt.', 15.99, 50, 'white-tshirt.jpg'),
-(1, 'Graphic Black Tee', 'Black t-shirt with a cool graphic design.', 19.99, 30, 'black-tee.jpg'),
-(2, 'Grey Pullover Hoodie', 'Heavyweight grey hoodie.', 45.00, 20, 'grey-hoodie.jpg'),
-(3, 'Slim Fit Blue Jeans', 'Classic blue denim slim fit jeans.', 55.50, 40, 'blue-jeans.jpg');
+(1, 'Classic White T-Shirt', 'A 100% cotton classic white t-shirt.', 15.99, 50, 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80'),
+(1, 'Graphic Black Tee', 'Black t-shirt with a cool graphic design.', 19.99, 30, 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80'),
+(2, 'Grey Pullover Hoodie', 'Heavyweight grey hoodie.', 45.00, 20, 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80'),
+(3, 'Slim Fit Blue Jeans', 'Classic blue denim slim fit jeans.', 55.50, 40, 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80');
 
 -- 6. Admins Table
 CREATE TABLE IF NOT EXISTS admins (

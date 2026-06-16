@@ -60,7 +60,7 @@ while($row = mysqli_fetch_assoc($settings_result)) {
         <div class="mb-6">
             <label class="block text-sm font-medium text-gray-700 mb-2">Current Hero Image</label>
             <div class="h-48 w-full bg-gray-100 rounded-lg overflow-hidden border border-gray-300">
-                <img src="../assets/images/<?php echo htmlspecialchars($settings['hero_image']); ?>" class="w-full h-full object-cover">
+                <img src="<?php echo get_image_url($settings['hero_image']); ?>" class="w-full h-full object-cover">
             </div>
         </div>
 

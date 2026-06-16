@@ -18,4 +18,18 @@ $conn = mysqli_connect($host, $username, $password, $database);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+function get_image_url($image_url) {
+    if (empty($image_url)) {
+        return 'assets/images/default.jpg';
+    }
+    if (strpos($image_url, 'http://') === 0 || strpos($image_url, 'https://') === 0) {
+        return $image_url;
+    }
+    
+    // Check if we are inside the admin directory
+    $current_dir = basename(dirname($_SERVER['PHP_SELF']));
+    $prefix = ($current_dir === 'admin' || $current_dir === 'includes') ? '../assets/images/' : 'assets/images/';
+    return $prefix . $image_url;
+}
 ?>

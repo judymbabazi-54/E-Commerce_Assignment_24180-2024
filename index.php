@@ -90,7 +90,7 @@ while($row = mysqli_fetch_assoc($settings_result)) {
         <div class="w-full md:w-1/2 mt-16 md:mt-0 flex justify-center md:justify-end relative z-20">
             <div class="relative w-80 h-80 md:w-[600px] md:h-[600px]">
                 <!-- Using mix-blend-multiply to drop the white background of the image so it sits perfectly on the wave -->
-                <img src="assets/images/<?php echo htmlspecialchars($settings['hero_image']); ?>" alt="Hero Product" class="w-full h-full object-contain filter drop-shadow-2xl mix-blend-multiply transition-transform hover:-translate-y-4 duration-500 cursor-pointer">
+                <img src="<?php echo get_image_url($settings['hero_image']); ?>" alt="Hero Product" class="w-full h-full object-contain filter drop-shadow-2xl mix-blend-multiply transition-transform hover:-translate-y-4 duration-500 cursor-pointer">
             </div>
         </div>
 
@@ -105,7 +105,7 @@ while($row = mysqli_fetch_assoc($settings_result)) {
         <?php while($product = mysqli_fetch_assoc($result)): ?>
             <div class="group relative product-card bg-white rounded-lg p-4">
                 <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none relative">
-                    <img src="assets/images/<?php echo htmlspecialchars($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                    <img src="<?php echo get_image_url($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                 </div>
                 <div class="mt-4 flex justify-between">
                     <div>

@@ -55,7 +55,7 @@ if(!$cart_empty) {
                     <?php foreach($cart_items as $item): ?>
                         <li class="flex py-6 sm:py-10 bg-white px-4 mb-2 rounded-lg shadow-sm border border-gray-50">
                             <div class="flex-shrink-0">
-                                <img src="assets/images/<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="w-24 h-24 rounded-md object-center object-cover sm:w-32 sm:h-32">
+                                <img src="<?php echo get_image_url($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="w-24 h-24 rounded-md object-center object-cover sm:w-32 sm:h-32">
                             </div>
 
                             <div class="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
